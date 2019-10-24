@@ -36,7 +36,23 @@ public class BasicDocument extends Document
 	{
 		//TODO: Implement this method in week 2 according to the comments above.  
 		// See the Module 2 support videos if you need help.
-	    return 0;
+		// get whole text.
+		// break text into words
+		// have counter to count every word
+		// return number of words
+		
+		String s = getText();
+
+		int counter = 0;
+		String [] a = s.split(" +");
+		
+		counter = a.length;
+			
+		//for ( String b:a) {
+			
+		//	counter =+ 1;
+		//}
+	    return counter;
 	}
 	
 	/**
