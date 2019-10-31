@@ -149,9 +149,23 @@ public abstract class Document {
 	/** return the Flesch readability score of this document */
 	public double getFleschScore()
 	{
+	
+		double words = getNumWords();
+		double sentences = getNumSentences();
+		double Syllables = getNumSyllables();
+		double score = 206.835-1.015*(words/sentences) - 84.6*(Syllables/words);
+		
+		System.out.println(words);
+		System.out.println(sentences);
+		System.out.println(Syllables);
+		System.out.print(score);
+		
+		return 206.835 - (1.015 * (double)getNumWords()/getNumSentences())- (84.6 * ((double)getNumSyllables())/getNumWords());
+		
+		
 	    // TODO: You will play with this method in week 1, and 
 		// then implement it in week 2
-	    return 0.0;
+	  //  return score;
 	}
 	
 	
