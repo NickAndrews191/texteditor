@@ -12,10 +12,18 @@ import java.util.AbstractList;
 public class MyLinkedList<E> extends AbstractList<E> {
 	LLNode<E> head;
 	LLNode<E> tail;
+	E data;
 	int size;
+	
 
 	/** Create a new empty LinkedList */
 	public MyLinkedList() {
+    size = 0;
+    head = new LLNode<E>(null);
+    tail = new LLNode<E>(null);
+    head.next = tail;
+    tail.prev = head;
+		
 		// TODO: Implement this method
 	}
 
