@@ -35,7 +35,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	{
 		head.next = element;
 		element.prev = element.next.prev;
-		
+		size++;
 		// TODO: Implement this method
 		return true;
 	}
@@ -44,6 +44,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 * @throws IndexOutOfBoundsException if the index is out of bounds. */
 	public E get(int index) 
 	{
+		
 		
 		// TODO: Implement this method.
 		return null;
