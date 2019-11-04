@@ -12,7 +12,7 @@ import java.util.AbstractList;
 public class MyLinkedList<E> extends AbstractList<E> {
 	LLNode<E> head;
 	LLNode<E> tail;
-	E data;
+
 	int size;
 	
 
@@ -31,16 +31,20 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 * Appends an element to the end of the list
 	 * @param element The element to add
 	 */
-	public boolean add(E element ) 
+	public boolean add(LLNode<E> element ) 
 	{
+		head.next = element;
+		element.prev = element.next.prev;
+		
 		// TODO: Implement this method
-		return false;
+		return true;
 	}
 
 	/** Get the element at position index 
 	 * @throws IndexOutOfBoundsException if the index is out of bounds. */
 	public E get(int index) 
 	{
+		
 		// TODO: Implement this method.
 		return null;
 	}
