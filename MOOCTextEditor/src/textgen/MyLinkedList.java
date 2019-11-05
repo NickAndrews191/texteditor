@@ -44,12 +44,30 @@ public class MyLinkedList<E> extends AbstractList<E> {
 
 	/** Get the element at position index 
 	 * @throws IndexOutOfBoundsException if the index is out of bounds. */
-	public E get(int index) 
-	{
+	public E get(int index) 	{
 		
+		int i = 0;
+		
+		LLNode<E> dummy;
+		dummy = head;
+		
+		if (index < size) {
+			
+			
+			while (i < index) {
+			
+	       dummy = dummy.next;
+						
+		}
+			
+		return dummy.data;	
 	//	MyLinkedList<E>(index);
 		// TODO: Implement this method.
+		
+		}
+		else {
 		return null;
+		}
 	}
 
 	/**
