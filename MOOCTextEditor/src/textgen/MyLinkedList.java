@@ -33,8 +33,10 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public boolean add(LLNode<E> element ) 
 	{
-		head.next = element;
-		element.prev = element.next.prev;
+		element.prev = tail.prev;
+		element.next = tail.prev.next;
+		tail.prev.next = element;
+		tail.prev = element;		
 		size++;
 		// TODO: Implement this method
 		return true;
@@ -45,7 +47,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public E get(int index) 
 	{
 		
-		
+	//	MyLinkedList<E>(index);
 		// TODO: Implement this method.
 		return null;
 	}
@@ -65,7 +67,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public int size() 
 	{
 		// TODO: Implement this method
-		return -1;
+		return size;
 	}
 
 	/** Remove a node at the specified index and return its data element.
