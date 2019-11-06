@@ -10,6 +10,9 @@ import java.util.AbstractList;
  * @param <E> The type of the elements stored in the list
  */
 public class MyLinkedList<E> extends AbstractList<E> {
+	private static final E IndexOutOfBoundsException = null;
+	private static final E IndexOutOfBoundsException = null;
+	private static final E null = null;
 	LLNode<E> head;
 	LLNode<E> tail;
 
@@ -51,17 +54,18 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		LLNode<E> dummy;
 		dummy = head;
 		
-		if (index < size) {
+		if (index > size) {
 			
+			@throws IndexOutOfBoundsException;
 			
 			while (i < index) {
 			
 	       dummy = dummy.next;
-						
+			System.out.println(dummy.data);	
 		}
 			
 		return dummy.data;	
-	//	MyLinkedList<E>(index);
+	
 		// TODO: Implement this method.
 		
 		}
