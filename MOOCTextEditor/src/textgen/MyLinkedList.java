@@ -10,9 +10,7 @@ import java.util.AbstractList;
  * @param <E> The type of the elements stored in the list
  */
 public class MyLinkedList<E> extends AbstractList<E> {
-	private static final E IndexOutOfBoundsException = null;
-	private static final E IndexOutOfBoundsException = null;
-	private static final E null = null;
+	
 	LLNode<E> head;
 	LLNode<E> tail;
 
@@ -34,12 +32,15 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 * Appends an element to the end of the list
 	 * @param element The element to add
 	 */
-	public boolean add(LLNode<E> element ) 
+	public boolean add(E element ) 
 	{
-		element.prev = tail.prev;
-		element.next = tail.prev.next;
-		tail.prev.next = element;
-		tail.prev = element;		
+		System.out.println(" it found the add method ");
+		System.out.println(element);
+		LLNode<E>newNode=new LLNode(element);
+		newNode.prev = tail.prev;
+		newNode.next = tail.prev.next;
+		tail.prev.next = newNode;
+		tail.prev = newNode;		
 		size++;
 		// TODO: Implement this method
 		return true;
@@ -49,30 +50,41 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 * @throws IndexOutOfBoundsException if the index is out of bounds. */
 	public E get(int index) 	{
 		
-		int i = 0;
+int i = 0;
 		
 		LLNode<E> dummy;
-		dummy = head;
+		dummy = head.next;
+		System.out.println(dummy.data);		
 		
-		if (index > size) {
+		if ( size == 0 ) {
+						
+			System.out.println("it failed at 1st gate");		
+			throw new IndexOutOfBoundsException("index is out of bounds");					
+	}	
+		
+		
+		if ( index < 0 || index >= size ) {
+			System.out.println("it failed at 2nd gate");		
+			throw new IndexOutOfBoundsException("index is out of bounds");
 			
-			@throws IndexOutOfBoundsException;
-			
-			while (i < index) {
+		}	
+			while (i < index ) {
 			
 	       dummy = dummy.next;
 			System.out.println(dummy.data);	
+			i++;
 		}
-			
+	   
 		return dummy.data;	
 	
 		// TODO: Implement this method.
 		
 		}
-		else {
-		return null;
-		}
-	}
+	
+		
+		
+		
+	
 
 	/**
 	 * Add an element to the list at the specified index

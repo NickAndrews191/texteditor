@@ -123,6 +123,14 @@ public class MyLinkedListTester {
 	@Test
 	public void testAddEnd()
 	{
+		
+		shortList.add("C");
+		String dummyvalue = shortList.get(2);
+		
+		if (dummyvalue != "C"){
+		fail("Check out of bounds");
+		}
+		
         // TODO: implement this test
 		
 	}
