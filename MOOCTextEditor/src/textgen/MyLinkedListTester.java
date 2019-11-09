@@ -114,6 +114,23 @@ public class MyLinkedListTester {
 		assertEquals("Remove: check element 0 is correct ", (Integer)21, list1.get(0));
 		assertEquals("Remove: check size is correct ", 2, list1.size());
 		
+//		int a = list1.remove(1);
+//		assertEquals("Remove: check a is correct ", 21, a);
+//		assertEquals("Remove: check element 0 is correct ", (Integer)42, list1.get(1));
+//		assertEquals("Remove: check size is correct ", 2, list1.size());
+//		
+//		
+//		list1.add(65);
+//		
+//		
+//		int b = list1.remove(1);
+//		assertEquals("Remove: check a is correct ", 42, b);
+//		assertEquals("Remove: check element 0 is correct ", (Integer)65, list1.get(1));
+//	    assertEquals("Remove: check size is correct ", 2, list1.size());
+//	
+		
+		
+		
 		// TODO: Add more tests here
 	}
 	
@@ -126,8 +143,9 @@ public class MyLinkedListTester {
 		
 		shortList.add("C");
 		String dummyvalue = shortList.get(2);
+		int sizeholder = shortList.size(); 
 		
-		if (dummyvalue != "C"){
+		if (dummyvalue != "C" && sizeholder != 3){
 		fail("Check out of bounds");
 		}
 		

@@ -34,8 +34,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 */
 	public boolean add(E element ) 
 	{
-		System.out.println(" it found the add method ");
-		System.out.println(element);
+		
 		LLNode<E>newNode=new LLNode(element);
 		newNode.prev = tail.prev;
 		newNode.next = tail.prev.next;
@@ -50,17 +49,18 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	 * @throws IndexOutOfBoundsException if the index is out of bounds. */
 	public E get(int index) 	{
 		
-int i = 0;
+        int i = 0;
 		
 		LLNode<E> dummy;
-		dummy = head.next;
+		dummy = head;// test this is the orginal get
+		//dummy=head;
 		System.out.println(dummy.data);		
 		
 		if ( size == 0 ) {
 						
 			System.out.println("it failed at 1st gate");		
 			throw new IndexOutOfBoundsException("index is out of bounds");					
-	}	
+		}	
 		
 		
 		if ( index < 0 || index >= size ) {
@@ -68,22 +68,30 @@ int i = 0;
 			throw new IndexOutOfBoundsException("index is out of bounds");
 			
 		}	
+		
+		
+		
+		if (index == 0) {		
+			System.out.println(dummy.next.data + "this is when index is at 0");	
+			return dummy.next.data;
+			
+		}
+		
+		dummy = head.next;
+		
 			while (i < index ) {
 			
 	       dummy = dummy.next;
 			System.out.println(dummy.data);	
 			i++;
 		}
-	   
+	    System.out.println(dummy.data);		
 		return dummy.data;	
 	
 		// TODO: Implement this method.
 		
 		}
-	
-		
-		
-		
+    	
 	
 
 	/**
@@ -93,6 +101,8 @@ int i = 0;
 	 */
 	public void add(int index, E element ) 
 	{
+		
+		
 		// TODO: Implement this method
 	}
 
@@ -112,8 +122,54 @@ int i = 0;
 	 */
 	public E remove(int index) 
 	{
+		LLNode<E> deleting;
+		LLNode<E> placeholder;
+		
+		placeholder = head;
+		deleting = head;
+
+		int i = 0;
+		int d = index + 2;
+		int N = 0;
+		LLNode<E> holder = placeholder;
+		 if (index == 0) 
+	        { 
+			    
+	            head = placeholder.next.next; 
+	            holder = placeholder.next;
+	            size--;
+	            System.out.println(head.data + " this is the new value for the start of the linked list");// Change head 
+	            System.out.println(holder.data + " this is the value thats being removed");
+	            return holder.data; 
+	        } 
+		 
+		while (i <= index - 1) {
+			placeholder = placeholder.next;
+			holder = holder.next;
+			System.out.println(placeholder.data + " this is the value 1 before the deleted value");
+			i++;
+		}
+		
+		while (N < d) {
+			deleting = deleting.next;
+		
+			System.out.println(deleting.data + " this is the value 1 after the deleted value");
+			N++;
+		}
+		
+		
+		holder = holder.next;
+		placeholder.prev = deleting.prev.prev;
+		placeholder.next = deleting;
+		System.out.println(holder.data + " this is the value getting deleted");
+		System.out.println(placeholder.data +  " this is the value before the value that got deleted");
+		size--;
+//		deleting.prev.next = placeholder;
+//		deleting.prev = placeholder;	
+			
+	
 		// TODO: Implement this method
-		return null;
+		return holder.data;
 	}
 
 	/**
