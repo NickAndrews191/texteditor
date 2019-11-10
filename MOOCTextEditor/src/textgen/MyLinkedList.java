@@ -35,6 +35,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public boolean add(E element ) 
 	{
 		
+		if (element == null ) {
+			throw new IndexOutOfBoundsException("index is out of bounds");	
+		}
+		
+		
 		LLNode<E>newNode=new LLNode(element);
 		newNode.prev = tail.prev;
 		newNode.next = tail.prev.next;
@@ -102,6 +107,30 @@ public class MyLinkedList<E> extends AbstractList<E> {
 	public void add(int index, E element ) 
 	{
 		
+		
+		if (element == null ) {
+			throw new IndexOutOfBoundsException("index is out of bounds");	
+		}
+		
+		LLNode<E> dummy;
+		
+		dummy = head.next;
+		int i = 0;
+		while (i < index + 1 ) {
+		
+       dummy = dummy.next;
+		System.out.println(dummy.data);	
+		i++;
+	}
+    System.out.println(dummy.data);		
+		
+				
+		LLNode<E>newNode=new LLNode(element);
+		newNode.prev = dummy.prev;
+		newNode.next = dummy.prev.next;
+		dummy.prev.next = newNode;
+		dummy.prev = newNode;		
+		size++;
 		
 		// TODO: Implement this method
 	}
