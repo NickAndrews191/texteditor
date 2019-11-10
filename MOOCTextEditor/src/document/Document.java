@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 
 public abstract class Document {
 
-	protected String text;
+	private String text;
 	
 	/** Create a new document from the given text.
 	 * Because this class is abstract, this is used only from subclasses.
