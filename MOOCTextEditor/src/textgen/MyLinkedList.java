@@ -24,8 +24,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
     tail = new LLNode<E>(null);
     head.next = tail;
     tail.prev = head;
-		
-		// TODO: Implement this method
+				
 	}
 
 	/**
@@ -46,7 +45,7 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		tail.prev.next = newNode;
 		tail.prev = newNode;		
 		size++;
-		// TODO: Implement this method
+	
 		return true;
 	}
 
@@ -57,29 +56,21 @@ public class MyLinkedList<E> extends AbstractList<E> {
         int i = 0;
 		
 		LLNode<E> dummy;
-		dummy = head;// test this is the orginal get
-		//dummy=head;
-		System.out.println(dummy.data);		
+		dummy = head;
 		
-		if ( size == 0 ) {
-						
-			System.out.println("it failed at 1st gate");		
+		if ( size == 0 ) {						
 			throw new IndexOutOfBoundsException("index is out of bounds");					
 		}	
 		
 		
 		if ( index < 0 || index >= size ) {
-			System.out.println("it failed at 2nd gate");		
-			throw new IndexOutOfBoundsException("index is out of bounds");
-			
+		throw new IndexOutOfBoundsException("index is out of bounds");			
 		}	
 		
 		
 		
-		if (index == 0) {		
-			System.out.println(dummy.next.data + "this is when index is at 0");	
-			return dummy.next.data;
-			
+		if (index == 0) {				
+			return dummy.next.data;			
 		}
 		
 		dummy = head.next;
@@ -87,14 +78,11 @@ public class MyLinkedList<E> extends AbstractList<E> {
 			while (i < index ) {
 			
 	       dummy = dummy.next;
-			System.out.println(dummy.data);	
 			i++;
-		}
-	    System.out.println(dummy.data);		
+		}	   
 		return dummy.data;	
 	
-		// TODO: Implement this method.
-		
+				
 		}
     	
 	
@@ -119,28 +107,22 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		while (i < index + 1 ) {
 		
        dummy = dummy.next;
-		System.out.println(dummy.data);	
 		i++;
 	}
-    System.out.println(dummy.data);		
-		
-				
+   						
 		LLNode<E>newNode=new LLNode(element);
 		newNode.prev = dummy.prev;
 		newNode.next = dummy.prev.next;
 		dummy.prev.next = newNode;
 		dummy.prev = newNode;		
 		size++;
-		
-		// TODO: Implement this method
+				
 	}
 
 
 	/** Return the size of the list */
-	public int size() 
-	{
-		// TODO: Implement this method
-		return size;
+	public int size() 	{
+	   return size;
 	}
 
 	/** Remove a node at the specified index and return its data element.
@@ -164,25 +146,21 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		 if (index == 0) 
 	        { 
 			    
-	            head = placeholder.next.next; 
-	            holder = placeholder.next;
-	            size--;
-	            System.out.println(head.data + " this is the new value for the start of the linked list");// Change head 
-	            System.out.println(holder.data + " this is the value thats being removed");
-	            return holder.data; 
+	            deleting = deleting.next;
+	            deleting.prev.next = deleting.next;
+	            deleting.prev.next.prev = deleting.prev;
+	            size--;	          
+	            return deleting.data; 
 	        } 
 		 
 		while (i <= index - 1) {
 			placeholder = placeholder.next;
-			holder = holder.next;
-			System.out.println(placeholder.data + " this is the value 1 before the deleted value");
+			holder = holder.next;			
 			i++;
 		}
 		
 		while (N < d) {
-			deleting = deleting.next;
-		
-			System.out.println(deleting.data + " this is the value 1 after the deleted value");
+			deleting = deleting.next;				
 			N++;
 		}
 		
@@ -190,14 +168,8 @@ public class MyLinkedList<E> extends AbstractList<E> {
 		holder = holder.next;
 		placeholder.prev = deleting.prev.prev;
 		placeholder.next = deleting;
-		System.out.println(holder.data + " this is the value getting deleted");
-		System.out.println(placeholder.data +  " this is the value before the value that got deleted");
-		size--;
-//		deleting.prev.next = placeholder;
-//		deleting.prev = placeholder;	
-			
 	
-		// TODO: Implement this method
+		size--;
 		return holder.data;
 	}
 
