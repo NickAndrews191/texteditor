@@ -37,8 +37,12 @@ public class DictionaryLL implements Dictionary
 
     /** Is this a word according to this dictionary? */
     public boolean isWord(String s) {
+    	
+    	String Word = s.toLowerCase(); 
+    	Dictionary.contains(Word);
         //TODO: Implement this method
-        return false;
+    	
+        return true;
     }
 
     
