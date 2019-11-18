@@ -51,7 +51,7 @@ public class EfficientDocument extends Document {
 		// MAKE SURE YOU UNDERSTAND THIS LINE BEFORE YOU CODE THE REST
 		// OF THIS METHOD.
 		List<String> tokens = getTokens("[!?.]+|[a-zA-Z]+");
-		text = getTokens("[!?.]+|[a-zA-Z]+");
+//		text = getTokens("[!?.]+|[a-zA-Z]+");
 		numWords = getNumWords();
 		numSentences = getNumSentences();
 		numSyllables = getNumSyllables();
