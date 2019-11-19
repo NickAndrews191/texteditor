@@ -22,9 +22,14 @@ public class DictionaryLL implements Dictionary
     public boolean addWord(String word) {
     	
     	String Word = word.toLowerCase(); 
-    	Dictionary.add(Word);
+     if ( Dictionary.contains(Word) == false) {
+    	 Dictionary.add(Word);
+    	 return true;
+     }
+     else {
     	// TODO: Implement this method
-        return true;
+        return false;
+     }
     }
 
 
@@ -32,6 +37,7 @@ public class DictionaryLL implements Dictionary
     public int size()
     {
         // TODO: Implement this method
+    	
         return Dictionary.size();
     }
 
@@ -39,10 +45,11 @@ public class DictionaryLL implements Dictionary
     public boolean isWord(String s) {
     	
     	String Word = s.toLowerCase(); 
-    	Dictionary.contains(Word);
+    	
+   
         //TODO: Implement this method
     	
-        return true;
+        return Dictionary.contains(Word);
     }
 
     
