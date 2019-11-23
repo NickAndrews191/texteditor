@@ -2,6 +2,7 @@ package spelling;
 
 import java.util.List;
 import java.util.Set;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -13,8 +14,11 @@ import java.util.LinkedList;
  */
 public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 
-    private TrieNode root;
+    private TrieNode root = new TrieNode();
     private int size;
+    private boolean isWord;
+    private String text;
+    HashMap<Character,TrieNode> children;
     
 
     public AutoCompleteDictionaryTrie()
@@ -39,7 +43,14 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	 */
 	public boolean addWord(String word)
 	{
+		String Word = word.toLowerCase();
+		char[] lettersInWord = Word.toCharArray();
+		
+		for (char ltr: lettersInWord) {
+			root.insert(ltr);
+		}
 	    //TODO: Implement this method.
+		
 	    return false;
 	}
 	
@@ -50,7 +61,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	public int size()
 	{
 	    //TODO: Implement this method
-	    return 0;
+	    return size;
 	}
 	
 	
@@ -59,6 +70,10 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	@Override
 	public boolean isWord(String s) 
 	{
+		String Word = s.toLowerCase();
+		
+		
+		
 	    // TODO: Implement this method
 		return false;
 	}
