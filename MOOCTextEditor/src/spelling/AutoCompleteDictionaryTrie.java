@@ -71,6 +71,11 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	public boolean isWord(String s) 
 	{
 		String Word = s.toLowerCase();
+		char[] lettersInWord = Word.toCharArray();
+		
+		for (char ltr: lettersInWord) {
+			root.getChild(ltr);
+		}
 		
 		
 		
