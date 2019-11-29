@@ -19,7 +19,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
     private boolean isWord;
     private String text;
     HashMap<Character,TrieNode> children;
-    
+    private TrieNode dummy = new TrieNode();
 
     public AutoCompleteDictionaryTrie()
 	{
@@ -43,13 +43,42 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	 */
 	public boolean addWord(String word)
 	{
+		dummy = root;
 		String Word = word.toLowerCase();
 		char[] lettersInWord = Word.toCharArray();
+		int wordsize = lettersInWord.length;		
+		int counter = 0;
+	
 		
 		for (char ltr: lettersInWord) {
-			root.insert(ltr);
+			
+			counter ++;
+			
+			
+			if(dummy.getChild(ltr) != null) {
+			
+				dummy = dummy.getChild(ltr);
+				
+			}
+			
+			else {
+			
+				TrieNode t = dummy.insert(ltr);
+				dummy = dummy.getChild(ltr);
+				
+			if( counter== lettersInWord.length) {
+			
+				t.setEndsWord(true);
+				size++;
+				
+				return true;
+			}
+				
+												
+			}
+			
 		}
-	    //TODO: Implement this method.
+	  
 		
 	    return false;
 	}
@@ -60,6 +89,7 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	 */
 	public int size()
 	{
+	System.out.print(size);
 	    //TODO: Implement this method
 	    return size;
 	}
@@ -70,17 +100,44 @@ public class AutoCompleteDictionaryTrie implements  Dictionary, AutoComplete {
 	@Override
 	public boolean isWord(String s) 
 	{
+		
 		String Word = s.toLowerCase();
 		char[] lettersInWord = Word.toCharArray();
+	//	char space = lettersInWord.charArray[0];
+		int wordsize = lettersInWord.length;
+		int counter = 0;
 		
-		for (char ltr: lettersInWord) {
-			root.getChild(ltr);
+		dummy = root;
+		
+		String a = "a";
+		String i = "i";
+		
+		if(wordsize == 0 ) {
+	
+			return false;
 		}
 		
 		
+		for (char ltr: lettersInWord) {
+			
+										
+			if(dummy.getChild(ltr) !=null && !Word.contains(" ") ) {
+				dummy = dummy.getChild(ltr);
+								
+			}
+			
+			else {
+				
+				return false;
+			}
+			
+		}
 		
-	    // TODO: Implement this method
-		return false;
+					
+		
+	   
+	
+		return true;
 	}
 
 	/** 
